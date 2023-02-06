@@ -2,7 +2,7 @@
  * cs3515.examples.auction.AuctioneerImpl                          *
  *******************************************************************/
 
-package cs3534.examples.auction;
+package examples.auction;
 
 import java.rmi.RemoteException;
 import java.util.Vector;

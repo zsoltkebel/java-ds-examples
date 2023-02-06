@@ -2,7 +2,7 @@
  * cs3515.examples.socketsps.Stone                                 *
  *******************************************************************/
 
-package cs3534.examples.socketsps;
+package examples.socketsps;
 
 /**
  * Represents the Stone choice in the scissors-paper-stone game.

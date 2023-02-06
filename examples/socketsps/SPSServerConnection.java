@@ -1,4 +1,4 @@
-package cs3534.examples.socketsps;
+package examples.socketsps;
 
 import java.util.Random;
 import java.io.ObjectInputStream;

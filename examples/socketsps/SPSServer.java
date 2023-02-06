@@ -1,4 +1,4 @@
-package cs3534.examples.socketsps;
+package examples.socketsps;
 /*******************************************************************
  * cs3515.examples.socketsps.SPSServer                             *
  *******************************************************************/
@@ -61,6 +61,8 @@ public class SPSServer
 		catch (Exception e) {
 			e.printStackTrace( System.err );
 		}
+
+		listener.close();
 	}
     
     /**

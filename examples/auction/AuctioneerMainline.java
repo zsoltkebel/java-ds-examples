@@ -5,7 +5,7 @@
  * MK, 2016-01-27
  */
 
-package cs3534.examples.auction;
+package examples.auction;
 
 import java.rmi.Naming;
 import java.lang.SecurityManager;
@@ -36,7 +36,7 @@ public class AuctioneerMainline
 	    int registryport = Integer.parseInt( args[0] ) ;
 	    int serverport = Integer.parseInt( args[1] ) ;
 	
-	    System.setProperty( "java.security.policy", "cs3534/examples/auction/auction.policy" ) ;
+	    System.setProperty( "java.security.policy", "examples/auction/auction.policy" ) ;
 	    System.setSecurityManager( new SecurityManager() ) ;
 
 	    // Get the item for sale from the command-line arguments.

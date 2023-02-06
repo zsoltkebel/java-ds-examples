@@ -2,7 +2,7 @@
  * cs3515.examples.auction.BidderInterface                         *
  *******************************************************************/
 
-package cs3534.examples.auction;
+package examples.auction;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;

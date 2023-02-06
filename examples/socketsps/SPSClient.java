@@ -2,7 +2,7 @@
  * cs3515.examples.socketsps.SPSClient                             *
  *******************************************************************/
 
-package cs3534.examples.socketsps;
+package examples.socketsps;
 
 
 import java.io.ObjectInputStream;

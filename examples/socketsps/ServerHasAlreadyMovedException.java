@@ -2,7 +2,7 @@
  * cs3515.examples.socketsps.ServerHasAlreadyMovedException        *
  *******************************************************************/
 
-package cs3534.examples.socketsps;
+package examples.socketsps;
 
 /**
  * An exception class, instances of which will be thrown if the server

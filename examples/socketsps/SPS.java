@@ -2,7 +2,7 @@
  * cs3515.examples.socketsps.SPS                                   *
  *******************************************************************/
 
-package cs3534.examples.socketsps;
+package examples.socketsps;
 
 import java.io.Serializable;
 
