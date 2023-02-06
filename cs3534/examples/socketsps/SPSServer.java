@@ -1,18 +1,9 @@
+package cs3534.examples.socketsps;
 /*******************************************************************
  * cs3515.examples.socketsps.SPSServer                             *
  *******************************************************************/
 
-package cs3534.examples.socketsps;
-
 import java.util.Random;
-
-import cs3534.examples.socketsps.Choice;
-import cs3534.examples.socketsps.Paper;
-import cs3534.examples.socketsps.SPS;
-import cs3534.examples.socketsps.Scissors;
-import cs3534.examples.socketsps.ServerHasAlreadyMovedException;
-import cs3534.examples.socketsps.Stone;
-
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.IOException;
@@ -40,32 +31,38 @@ public class SPSServer
     /**
      * Check that the port has been specified, and set things rolling.
      */
-    public static void main(String[] args) throws IOException
-    {
-	if (args.length != 1) {
-	    System.out.println("Usage: java SPSServer <port>");
-	    return;
-	}
-	new SPSServer().startListening(Integer.parseInt(args[0]));
+    public static void main(String[] args) throws IOException {
+		if (args.length != 1) {
+			System.out.println("Usage: java SPSServer <port>");
+			return;
+		}
+		new SPSServer().startListening(Integer.parseInt(args[0]));
     }
 
     /**
      * Intialise the random number generator and wait for connection
      * requests.
      */
-    void startListening(int port) throws IOException
-    {
-	_gen = new Random( System.currentTimeMillis() );
-	ServerSocket listener = new ServerSocket(port);
-	while (true) {
-	    _clientSocket = listener.accept();
-	    // Open I/O steams
-	    _clientIn = new ObjectInputStream( _clientSocket.getInputStream() );
-	    _clientOut = new ObjectOutputStream( _clientSocket.getOutputStream() );
-	    go();
-	}
-    }
+    void startListening(int port) throws IOException {
+		_gen = new Random( System.currentTimeMillis() );
+		ServerSocket listener = new ServerSocket(port);
+		// while (true) {
+		// 	_clientSocket = listener.accept();
+		// 	// Open I/O steams
+		// 	_clientIn = new ObjectInputStream( _clientSocket.getInputStream() );
+		// 	_clientOut = new ObjectOutputStream( _clientSocket.getOutputStream() );
+		// 	go();
+		// }
 
+		try {
+			while (true)
+				new SPSServerConnection(listener.accept()).start();
+		}
+		catch (Exception e) {
+			e.printStackTrace( System.err );
+		}
+	}
+    
     /**
      * Makes the server's move in the game.
      
@@ -128,5 +125,3 @@ public class SPSServer
 	return theChoice;
     }
 } // End of class SPSServer
-
-
