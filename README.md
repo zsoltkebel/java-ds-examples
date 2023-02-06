@@ -1,5 +1,5 @@
 # Exmaples
-## RMI (Remote Method Invokation) Shout
+## [RMI (Remote Method Invokation) Shout](/examples/rmishout/) (Practical 1)
 
 Instructions to build:
 
