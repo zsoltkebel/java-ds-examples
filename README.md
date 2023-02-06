@@ -24,3 +24,15 @@ hostname to find machine name \
 
 3. Open another terminal (Client) at reposity root and run \
 `java cs3524.examples.socketsps.SPSClient localhost XXXXXX`
+
+## [Auction](/cs3534/examples/auction/)
+
+1. `make auction`
+
+2. `rmiregistry XXXXX`
+
+3. New Terminal \
+`java cs3534.examples.auction.AuctioneerMainline XXXXX 50014 laptop`
+
+4. New Termial \
+`java cs3534.examples.auction.BidderMainline oa-edu-188-66.wireless.abdn.ac.uk XXXXX 50016 30`

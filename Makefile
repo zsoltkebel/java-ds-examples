@@ -51,6 +51,21 @@ socketspsclean:
 	cd $(cs3534_HOME)
 
 ###########################################################
+## The Auction example using Callbacks
+##
+## Zsolt Kebel
+## 2023/06/02
+###########################################################
+
+auction:
+	javac cs3534/examples/auction/*.java;
+
+auctionclean:
+	cd cs3534/examples/auction; \
+	rm $(RM_FLAGS) *.class *~; \
+	cd $(cs3534_HOME)
+
+###########################################################
 ## The Scissors, Paper, Stone example and solution
 ##
 ## Tim Norman
