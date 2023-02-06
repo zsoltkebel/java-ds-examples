@@ -4,12 +4,12 @@ cs3534_HOME="."
 RM_FLAGS="-f"
 
 rmishout:
-	javac cs3534/examples/rmishout/ShoutServerImpl.java; \
-	javac cs3534/examples/rmishout/ShoutServerMainline.java; \
-	javac cs3534/examples/rmishout/ShoutClient.java
+	javac examples/rmishout/ShoutServerImpl.java; \
+	javac examples/rmishout/ShoutServerMainline.java; \
+	javac examples/rmishout/ShoutClient.java
 
 rmishoutclean:
-	cd cs3534/examples/rmishout; \
+	cd examples/rmishout; \
 	rm $(RM_FLAGS) *.class *~; \
 	cd $(cs3534_HOME)
 

@@ -8,11 +8,13 @@ Instructions to build:
 
 2. Run the Server code ports between 50010 - 50019 \
 `rmiregistry XXXXX` \
-`java examples.rmishout.ShoutServerMainline XXXXXX YYYYYY`
 
-3. Run the Client code
-hostname to find machine name \
-`java examples.rmishout.ShoutClient <yourmachine-name> XXXXXX`
+3. Run the Server \
+`java examples.rmishout.ShoutServerMainline XXXXXX YYYYYY` \
+
+3. Run the Client code \
+`java examples.rmishout.ShoutClient <yourmachine-name> XXXXXX` \
+You can use the command `hostname` to identify your host name.
 
 ## [Socket SPS (Scissors-Paper-Stone)](/examples/socketsps/) (Practical 2)
 
