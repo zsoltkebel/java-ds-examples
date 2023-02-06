@@ -14,7 +14,7 @@ Instructions to build:
 hostname to find machine name \
 `java examples.rmishout.ShoutClient <yourmachine-name> XXXXXX`
 
-## [Socket SPS (Scissors-Paper-Stone)](./examples/socketsps/) (Practical 2)
+## [Socket SPS (Scissors-Paper-Stone)](/examples/socketsps/) (Practical 2)
 
 1. Build with \
 `make socketsps`
@@ -25,7 +25,7 @@ hostname to find machine name \
 3. Open another terminal (Client) at reposity root and run \
 `java examples.socketsps.SPSClient localhost XXXXXX`
 
-## [Auction](./examples/auction/) (Practical 2)
+## [Auction](/examples/auction/) (Practical 2)
 
 1. `make auction`
 
