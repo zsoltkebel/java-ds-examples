@@ -42,11 +42,11 @@ shouttaskclean:
 ###########################################################
 
 socketsps:
-	javac cs3534/examples/socketsps/SPSServer.java; \
-	javac cs3534/examples/socketsps/SPSClient.java;
+	javac examples/socketsps/SPSServer.java; \
+	javac examples/socketsps/SPSClient.java;
 
 socketspsclean:
-	cd cs3534/examples/socketsps; \
+	cd examples/socketsps; \
 	rm $(RM_FLAGS) *.class *~; \
 	cd $(cs3534_HOME)
 
@@ -58,10 +58,10 @@ socketspsclean:
 ###########################################################
 
 auction:
-	javac cs3534/examples/auction/*.java;
+	javac examples/auction/*.java;
 
 auctionclean:
-	cd cs3534/examples/auction; \
+	cd examples/auction; \
 	rm $(RM_FLAGS) *.class *~; \
 	cd $(cs3534_HOME)
 
