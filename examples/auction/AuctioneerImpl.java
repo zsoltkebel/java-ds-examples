@@ -113,8 +113,8 @@ public class AuctioneerImpl
 			}
 			// Let all the others know that they have lost and inform them
 			// of the outcome of the auction.
-			for (Enumeration e = _loosers.elements() ; e.hasMoreElements() ;) {
-				BidderInterface b = (BidderInterface)e.nextElement();
+			for (Enumeration<BidderInterface> e = _loosers.elements() ; e.hasMoreElements() ;) {
+				BidderInterface b = e.nextElement();
 				if (b != null)
 					b.lost( _item, msg );
 			}
