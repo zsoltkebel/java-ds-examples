@@ -7,6 +7,8 @@
 
 package examples.auction;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.rmi.Naming;
 import java.lang.SecurityManager;
 import java.rmi.server.UnicastRemoteObject;
@@ -25,40 +27,43 @@ import java.rmi.server.UnicastRemoteObject;
  * @version 1.0
  */
 
-public class BidderMainline
-{
-    public static void main(String args[])
-    {
-	if (args.length < 4) {
-	    System.err.println( "Usage:\njava BidderMainline <registryhost> <registryport> <callbackport> <bid>" ) ;
-	    return;
+public class BidderMainline {
+    public static void main(String args[]) {
+		if (args.length < 4) {
+			System.err.println( "Usage:\njava BidderMainline <registryhost> <registryport> <callbackport> <bid>" ) ;
+			return;
+		}
+
+		try {
+			String hostname = args[0];
+			int registryport = Integer.parseInt( args[1] ) ;
+			int callbackport = Integer.parseInt( args[2] ) ;
+		
+			System.setProperty( "java.security.policy", "examples/auction/auction.policy" ) ;
+			System.setSecurityManager( new SecurityManager() ) ;
+
+			// Get the price being bid from the command-line arguments.
+			float price = Float.parseFloat( args[3] );
+
+			BidderImpl bidder = new BidderImpl();
+			BidderInterface bidderstub = (BidderInterface) UnicastRemoteObject.exportObject(bidder, callbackport);
+
+			String regURL = "rmi://" + hostname + ":" + registryport + "/Auctioneer";
+			AuctioneerInterface auc = (AuctioneerInterface) Naming.lookup(regURL);
+			
+			System.out.println("Welcome to the auction, the item is: " + auc.getItem());
+			System.out.print("Please enter your bid: ");
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+			price = Float.parseFloat(in.readLine());
+
+			auc.bid( bidderstub, price );
+		}
+		catch(java.rmi.NotBoundException e) {
+			System.err.println( "Can't find the auctioneer in the registry." );
+		}
+		catch (java.io.IOException e) {
+			System.out.println( "Failed to register." );
+		}
 	}
-
-	try {
-	    String hostname = args[0];
-	    int registryport = Integer.parseInt( args[1] ) ;
-	    int callbackport = Integer.parseInt( args[2] ) ;
-	
-	    System.setProperty( "java.security.policy", "examples/auction/auction.policy" ) ;
-	    System.setSecurityManager( new SecurityManager() ) ;
-
-	    // Get the price being bid from the command-line arguments.
-	    float price = Float.parseFloat( args[3] );
-
-            BidderImpl bidder = new BidderImpl();
-	    BidderInterface bidderstub = (BidderInterface)UnicastRemoteObject.exportObject( bidder, callbackport );
-
-	    String regURL = "rmi://" + hostname + ":" + registryport + "/Auctioneer";
-	    AuctioneerInterface auc =
-		(AuctioneerInterface)Naming.lookup( regURL );
-
-	    auc.bid( bidderstub, price );
-	}
-	catch(java.rmi.NotBoundException e) {
-	    System.err.println( "Can't find the auctioneer in the registry." );
-	}
-	catch (java.io.IOException e) {
-            System.out.println( "Failed to register." );
-        }
-    }
 }

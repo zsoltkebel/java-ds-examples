@@ -27,9 +27,7 @@ public interface BidderInterface extends Remote
      * @param item the item that has been bought.
      * @param price The price paid for the item.
      */
-    public void won( String item,
-		     float price )
-	throws RemoteException;
+    public void won(String item, float price) throws RemoteException;
 
     /**
      * Method to enable the auctineer to inform the bidder that they
@@ -38,7 +36,13 @@ public interface BidderInterface extends Remote
      * @param item the item that was being auctioned.
      * @param msg A message from the auction to the bidder.
      */
-    public void lost( String item,
-		      String msg )
-	throws RemoteException;
+    public void lost(String item, String msg) throws RemoteException;
+
+    /**
+     * Inform the bidder of the highest bid
+     * 
+     * @param highestBid
+     * @throws RemoteException
+     */
+    public void inform(float highestBid) throws RemoteException;
 }

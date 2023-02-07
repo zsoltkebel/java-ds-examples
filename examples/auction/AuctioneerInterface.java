@@ -32,7 +32,7 @@ public interface AuctioneerInterface extends Remote
      * @param buyer a reference to the bidder for call backs.
      * @param price The bid made for the item being auctioned.
      */
-    public void bid( BidderInterface buyer,
-		     float price )
-	throws RemoteException;
+    public void bid(BidderInterface buyer, float price) throws RemoteException;
+
+    public String getItem() throws RemoteException;
 }
